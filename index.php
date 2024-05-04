@@ -8,7 +8,7 @@ session_start();
     <title>gymOrg</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pagina web que gestiona la organización de las clases de unn gimnasio">
-    <link rel="icon" href="img/logo.jpg" type="image/png">
+    <link rel="icon" href="img/gymLogo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
