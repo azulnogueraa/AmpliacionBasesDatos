@@ -79,6 +79,8 @@ html{
 .saludo {
     color:white;
     align-content: center;
+    margin-left: 50%;
+
 }
 
 .saludo-topbar {
@@ -90,7 +92,7 @@ html{
 }
 
 .saludo-topbar .salir-topbar {
-    color: #1ab2a8;
+    color: #ccc;
 }
 
 
@@ -122,3 +124,4 @@ h1 {
     justify-content: center;
     color: white;
 }
+
