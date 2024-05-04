@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,10 +23,23 @@
         <!-- topbar items -->
         <div>
             <a href="index.php" class="topbar-item">Inicio</a>
-            <a href="login.php" class="topbar-item">Log In</a>
             <a href="registro.php" class="topbar-item">Registro</a>
+            <a href="login.php" class="topbar-item">Log In</a>
             <a href="clases.php" class="topbar-item">Clases</a>
         </div>
+
+        <?php
+        // Función para mostrar el saludo dependiendo del estado de sesión del usuario
+        function mostrarSaludo() {
+            if (isset($_SESSION['login']) && ($_SESSION['login'] === true)) {
+                return "Bienvenido, {$_SESSION['nombre']} <a href='logout.php' class='salir'>(salir)</a>";   
+            } else {
+                return "Usuario desconocido.";
+            }
+        }
+        ?>
+        <!-- Mostrar el saludo -->
+        <div class="saludo"><?= mostrarSaludo(); ?></div>
         
 
     </div>

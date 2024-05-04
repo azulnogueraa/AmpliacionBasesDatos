@@ -6,7 +6,6 @@ html{
     font-family: 'Inter', Arial, sans-serif;
     background-color: white;
     padding: 0;
-    color: #3B444B;
 }
 
 
@@ -75,6 +74,11 @@ html{
     max-width: 300px; 
     height: auto; 
     margin: 0 auto; 
+}
+
+.saludo {
+    color:white;
+    align-content: center;
 }
 
 .saludo-topbar {

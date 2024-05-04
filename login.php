@@ -23,10 +23,23 @@ session_start();
         <!-- topbar items -->
         <div>
             <a href="index.php" class="topbar-item">Inicio</a>
-            <a href="login.php" class="topbar-item">Log In</a>
             <a href="registro.php" class="topbar-item">Registro</a>
+            <a href="login.php" class="topbar-item">Log In</a>
             <a href="clases.php" class="topbar-item">Clases</a>
         </div>
+
+        <?php
+        // Función para mostrar el saludo dependiendo del estado de sesión del usuario
+        function mostrarSaludo() {
+            if (isset($_SESSION['login']) && ($_SESSION['login'] === true)) {
+                return "Bienvenido, {$_SESSION['nombre']} <a href='logout.php' class='salir'>(salir)</a>";   
+            } else {
+                return "Usuario desconocido.";
+            }
+        }
+        ?>
+        <!-- Mostrar el saludo -->
+        <div class="saludo"><?= mostrarSaludo(); ?></div>
 
     </div>
 
@@ -37,15 +50,15 @@ session_start();
             <form method="post" action="procesarLogin.php" name="signin-form">
             <fieldset>
                 <div class="legenda">
-                    <legend>Datos para reingresar</legend>
+                    <legend>Datos para ingresar</legend>
                 </div>
                 <div class="form-element">
-                    <label for="nombreUsuario">Email:</label>
-                    <input type="text" name="username" pattern="[a-zA-Z0-9]+" required />
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required />
                 </div>
                 <div class="form-element">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" name="password" required />
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="contrasena" name="contrasena" required />
                 </div>
                 <div class="boton">
                     <button type="submit" name="login" value="login">Log In</button>

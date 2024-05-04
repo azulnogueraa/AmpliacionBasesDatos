@@ -6,7 +6,6 @@ html{
     font-family: 'Inter', Arial, sans-serif;
     background-color: white;
     padding: 0;
-    color: #3B444B;
 }
 
 
@@ -77,6 +76,11 @@ html{
     margin: 0 auto; 
 }
 
+.saludo {
+    color:white;
+    align-content: center;
+}
+
 .saludo-topbar {
     color: white;
     margin-left: auto;
@@ -112,3 +116,9 @@ h1 {
     margin-top: 60px;
 }
 
+/*                                                 LOGOUT.PHP                                                 */
+
+.contenedor_logout {
+    justify-content: center;
+    color: white;
+}
