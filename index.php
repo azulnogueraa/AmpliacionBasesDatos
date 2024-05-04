@@ -23,9 +23,14 @@ session_start();
         <!-- topbar items -->
         <div>
             <a href="index.php" class="topbar-item">Inicio</a>
-            <a href="registro.php" class="topbar-item">Registro</a>
             <a href="login.php" class="topbar-item">Log In</a>
-            <a href="clases.php" class="topbar-item">Clases</a>
+            <a href="registro.php" class="topbar-item">Registro</a>
+            <?php
+            // Verificar si el usuario no está autenticado
+            if (isset($_SESSION["login"]) || $_SESSION["login"] == true) {
+                echo "<a href='clases.php' class='topbar-item'>Clases</a>";
+            }
+            ?>
         </div>
 
         <?php
