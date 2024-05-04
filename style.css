@@ -1,0 +1,115 @@
+
+/*                                         TOPBAR Y GENERAL                                                  */
+
+
+html{
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: white;
+    padding: 0;
+    color: #3B444B;
+}
+
+
+/* Barra Superior de contenido */
+
+.topbar {
+    background-color: #3B444B;
+    overflow: hidden;
+    display: flex;
+    width: 100vw; 
+    left: 0;
+    right: 0;
+    top: 0;
+    position:fixed;
+}
+
+.topbar-item {
+    display:inline-grid;
+    color: white;
+    text-align: center;
+    padding: 24px 40px; 
+    text-decoration: none;
+      
+}
+
+.topbar-item:hover {
+    background-color: rgba(255, 255, 255, 0.215);
+    color: black;
+    border-radius: 10px;
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .topbar-item {
+        float: none;
+        text-align: left;
+    }
+}
+
+.topbar-name {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size:larger;
+    text-align: center;
+}
+
+
+/* Introducción */
+
+.intro-topbar {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+.logo-topbar img {
+    max-width: 100%;
+    max-width: 300px; 
+    height: auto; 
+    margin: 0 auto; 
+}
+
+.saludo-topbar {
+    color: white;
+    margin-left: auto;
+    margin-right: 20px;
+    text-align: right;
+    margin-top: 25px;
+}
+
+.saludo-topbar .salir-topbar {
+    color: #1ab2a8;
+}
+
+
+h1 {
+    font-size: 4em;
+}
+
+
+/*                                                 INDEX.PHP                                                 */
+
+
+
+
+.imagen-fondo {
+    background-image: url('img/gym.jpeg'); /* Cambia 'tu-imagen.jpg' por el camino hacia tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+    height: 100vh; /* Establece la altura del contenedor al 100% de la altura de la ventana del navegador */
+    width: 100vw; /* Establece el ancho del contenedor al 100% del ancho de la ventana del navegador */
+    position: fixed; /* Fija el contenedor, lo que hace que permanezca en su lugar incluso al desplazarse */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Asegura que el fondo quede detrás de todo el contenido del cuerpo */
+}
+
