@@ -86,7 +86,7 @@ if (count($erroresFormulario) == 0) {
     <title>Registro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.jpg" type="image/png">
-    <link rel="stylesheet" href="CSS/login_registro.css">
+    <link rel="stylesheet" href="css/login_registro.css">
 </head>
 <body>
     <!-- topbar -->
@@ -99,7 +99,13 @@ if (count($erroresFormulario) == 0) {
             <a href="index.php" class="topbar-item">Inicio</a>
             <a href="registro.php" class="topbar-item">Registro</a>
             <a href="login.php" class="topbar-item">Log In</a>
-            <a href="clases.php" class="topbar-item">Clases</a>
+            <?php
+            // Verificar si el usuario está autenticado
+            if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+                echo "<a href='clases.php' class='topbar-item'>Clases</a>";
+                echo "<a href='perfil.php' class='topbar-item'>Perfil</a>";
+            }
+            ?>
         </div>
         <?php
         // Función para mostrar el saludo dependiendo del estado de sesión del usuario

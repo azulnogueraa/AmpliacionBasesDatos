@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+// Mostrar errores de PHP en la página web
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     // Si el usuario no está autenticado, redirigirlo al inicio de sesión
@@ -8,10 +13,10 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     exit();
 }
 
-// Mostrar errores de PHP en la página web
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+if (isset($_GET['id'])) {
+    $_SESSION['id_clase'] = $_GET['id'];
+    // También podrías guardar otros datos relacionados con la clase si es necesario
+}
 
 // Incluir el archivo de utilidades para la conexión y otras funciones
 require_once __DIR__.'/config.php';
@@ -53,7 +58,7 @@ function mostrarClasesDisponibles() {
     <title>Clases Disponibles</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.jpg" type="image/png">
-    <link rel="stylesheet" href="CSS/login_registro.css">
+    <link rel="stylesheet" href="css/login_registro.css">
 </head>
 <body>
     <!-- topbar -->
@@ -68,9 +73,10 @@ function mostrarClasesDisponibles() {
             <a href="login.php" class="topbar-item">Log In</a>
             <a href="registro.php" class="topbar-item">Registro</a>
             <?php
-            // Verificar si el usuario no está autenticado
-            if (isset($_SESSION["login"]) || $_SESSION["login"] == true) {
+            // Verificar si el usuario está autenticado
+            if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
                 echo "<a href='clases.php' class='topbar-item'>Clases</a>";
+                echo "<a href='perfil.php' class='topbar-item'>Perfil</a>";
             }
             ?>
         </div>

@@ -9,12 +9,6 @@ error_reporting(E_ALL);
 // Incluir el archivo de utilidades para la conexión y otras funciones
 require_once __DIR__.'/config.php';
 
-// Verificar si el usuario está logueado, si no, redirigirlo a la página de inicio de sesión
-if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
-    header('Location: login.php');
-    exit();
-}
-
 $erroresFormulario = [];
 
 // Verificar si se envió el formulario de inscripción
@@ -53,11 +47,10 @@ if ($formEnviado) {
             $stmtInsert->bind_param('ii', $UserID, $HorarioID);
 
             if ($stmtInsert->execute()) {
-                // Establecer un mensaje de éxito en la sesión
+                // Inscripción exitosa
                 $_SESSION['exitoMensaje'] = 'Te has inscrito correctamente en la clase.';
-                
-                // Redirigir a esta misma página para mostrar el mensaje de éxito
-                header('Location: ' . $_SERVER['PHP_SELF']);
+    
+                header('Location: perfil.php');
                 exit();
             } else {
                 $erroresFormulario['general'] = 'Error al inscribirse en la clase. Por favor, inténtalo de nuevo.';
@@ -71,8 +64,7 @@ if ($formEnviado) {
     }
 }
 
-// Obtener el ID de clase seleccionado desde el parámetro de la URL (previamente obtenido en clases.php)
-$ClaseID = $_GET['id']; // Asegúrate de validar y sanitizar esta entrada en un entorno de producción
+$ClaseID = $_SESSION['id']; 
 
 // Obtener los horarios disponibles para la clase seleccionada desde la base de datos
 $conn = conexionBD();
@@ -98,7 +90,7 @@ $conn->close();
     <title>Inscribirse en Clase</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.jpg" type="image/png">
-    <link rel="stylesheet" href="CSS/login_registro.css">
+    <link rel="stylesheet" href="css/login_registro.css">
 </head>
 <body>
     <!-- topbar -->
