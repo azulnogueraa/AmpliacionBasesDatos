@@ -122,7 +122,7 @@ $conn->close();
         <?php
         // Mostrar el nombre del usuario si está logueado
         if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-            echo '<div class="saludo">Bienvenido, ' . $_SESSION['nombre'] . ' (<a href="logout.php" class="salir">Salir</a>)</div>';
+            echo '<div class="saludo">' . $_SESSION['nombre'] . ' (<a href="logout.php" class="salir">Salir</a>)</div>';
         }
         ?>
     </div>

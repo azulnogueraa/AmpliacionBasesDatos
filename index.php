@@ -37,7 +37,7 @@ session_start();
         // Función para mostrar el saludo dependiendo del estado de sesión del usuario
         function mostrarSaludo() {
             if (isset($_SESSION['login']) && ($_SESSION['login'] === true)) {
-                return "Bienvenido, {$_SESSION['nombre']} <a href='logout.php' class='salir'>(salir)</a>";   
+                return "{$_SESSION['nombre']} <a href='logout.php' class='salir'>(salir)</a>";   
             } else {
                 return "Usuario desconocido.";
             }

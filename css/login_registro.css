@@ -79,7 +79,12 @@ html{
 .saludo {
     color:white;
     align-content: center;
-    margin-left: 50%;
+    color: white;
+    margin-left: auto;
+    margin-right: 20px;
+    text-align: right;
+    align-items: center;
+
 }
 
 .saludo-topbar {
