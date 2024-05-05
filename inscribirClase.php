@@ -9,6 +9,10 @@ error_reporting(E_ALL);
 // Incluir el archivo de utilidades para la conexión y otras funciones
 require_once __DIR__.'/config.php';
 
+if (isset($_GET['id'])) {
+    $_SESSION['clase_id'] = $_GET['id'];
+}
+
 $erroresFormulario = [];
 
 // Verificar si se envió el formulario de inscripción
@@ -64,7 +68,7 @@ if ($formEnviado) {
     }
 }
 
-$ClaseID = $_SESSION['id']; 
+$ClaseID = $_SESSION['clase_id'];
 
 // Obtener los horarios disponibles para la clase seleccionada desde la base de datos
 $conn = conexionBD();

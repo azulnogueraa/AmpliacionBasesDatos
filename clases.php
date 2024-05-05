@@ -8,14 +8,13 @@ error_reporting(E_ALL);
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
-    // Si el usuario no está autenticado, redirigirlo al inicio de sesión
+    // Si no está autenticado, redirigir a la página de inicio de sesión
     header('Location: login.php');
     exit();
 }
 
 if (isset($_GET['id'])) {
-    $_SESSION['id_clase'] = $_GET['id'];
-    // También podrías guardar otros datos relacionados con la clase si es necesario
+    $_SESSION['clase_id'] = $_GET['id'];
 }
 
 // Incluir el archivo de utilidades para la conexión y otras funciones

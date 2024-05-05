@@ -65,10 +65,10 @@ if (count($erroresFormulario) == 0) {
 
         if ($conn->query($query)) {
             $_SESSION["login"] = true;
-            $_SESSION["nombre"] = $nombre;
+            $_SESSION["nombre"] = $nombre . ' ' . $apellido;
             $_SESSION["id"] = $conn->insert_id;
             $_SESSION["email"] = $email;
-            header('Location: index.php');
+            header('Location: clases.php'); 
             exit();
         } else {
             $erroresFormulario[] = 'Error al registrar al usuario.';
