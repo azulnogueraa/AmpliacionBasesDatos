@@ -106,7 +106,7 @@ $conn->close();
     <title>Inscribirse en Clase</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.jpg" type="image/png">
-    <link rel="stylesheet" href="css/login_registro.css">
+    <link rel="stylesheet" href="css/inscripcion.css">
 </head>
 <body>
     <!-- topbar -->
@@ -163,7 +163,7 @@ $conn->close();
                                 <input type="radio" name="Horario_ID" value="<?= $horario['HorarioID'] ?>" 
                                     <?= $horario['CapacidadDisponible'] <= 0 ? 'disabled' : '' ?> required>
                                 <?= date('d/m/Y', strtotime($horario['Fecha'])) ?> - <?= date('H:i', strtotime($horario['HoraInicio'])) ?>
-                                (Capacidad disponible: <?= $horario['CapacidadDisponible'] ?>)
+                                (Capacidad: <?= $horario['CapacidadDisponible'] ?>)
                             </label>
                         </div>
                     <?php endforeach; ?>
