@@ -72,7 +72,11 @@ $ClaseID = $_SESSION['clase_id'];
 
 // Obtener los horarios disponibles para la clase seleccionada desde la base de datos
 $conn = conexionBD();
-$query = "SELECT HorarioID, Fecha, HoraInicio FROM HorariosClases WHERE ClaseID = ?";
+$query = "SELECT hc.HorarioID, hc.Fecha, hc.HoraInicio, hc.Capacidad, COUNT(i.InscripcionID) AS Inscritos
+          FROM HorariosClases hc
+          LEFT JOIN Inscripciones i ON hc.HorarioID = i.HorarioID
+          WHERE hc.ClaseID = ?
+          GROUP BY hc.HorarioID, hc.Fecha, hc.HoraInicio, hc.Capacidad";
 $stmt = $conn->prepare($query);
 $stmt->bind_param('i', $ClaseID);
 $stmt->execute();
@@ -80,6 +84,14 @@ $result = $stmt->get_result();
 
 $horariosDisponibles = [];
 while ($row = $result->fetch_assoc()) {
+    $capacidadMaxima = $row['Capacidad'];
+    $inscritos = $row['Inscritos'];
+    $capacidadDisponible = $capacidadMaxima - $inscritos;
+
+    // Agregar 'CapacidadDisponible' como parte del array $row
+    $row['CapacidadDisponible'] = $capacidadDisponible;
+
+    // Agregar el elemento actualizado a $horariosDisponibles
     $horariosDisponibles[] = $row;
 }
 
@@ -148,8 +160,10 @@ $conn->close();
                     <?php foreach ($horariosDisponibles as $horario) : ?>
                         <div>
                             <label>
-                                <input type="radio" name="Horario_ID" value="<?= $horario['HorarioID'] ?>" required>
+                                <input type="radio" name="Horario_ID" value="<?= $horario['HorarioID'] ?>" 
+                                    <?= $horario['CapacidadDisponible'] <= 0 ? 'disabled' : '' ?> required>
                                 <?= date('d/m/Y', strtotime($horario['Fecha'])) ?> - <?= date('H:i', strtotime($horario['HoraInicio'])) ?>
+                                (Capacidad disponible: <?= $horario['CapacidadDisponible'] ?>)
                             </label>
                         </div>
                     <?php endforeach; ?>
