@@ -1,0 +1,131 @@
+/*                                         TOPBAR Y GENERAL                                                  */
+
+
+html{
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: white;
+    padding: 0;
+}
+
+
+/* Barra Superior de contenido */
+
+.topbar {
+    background-color: #3B444B;
+    overflow: hidden;
+    display: flex;
+    width: 100vw; 
+    left: 0;
+    right: 0;
+    top: 0;
+    position:fixed;
+}
+
+.topbar-item {
+    display:inline-grid;
+    color: white;
+    text-align: center;
+    padding: 24px 40px; 
+    text-decoration: none;
+      
+}
+
+.topbar-item:hover {
+    background-color: rgba(255, 255, 255, 0.215);
+    color: black;
+    border-radius: 10px;
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .topbar-item {
+        float: none;
+        text-align: left;
+    }
+}
+
+.topbar-name {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size:larger;
+    text-align: center;
+}
+
+
+/* Introducción */
+
+.intro-topbar {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+.logo-topbar img {
+    max-width: 100%;
+    max-width: 300px; 
+    height: auto; 
+    margin: 0 auto; 
+}
+
+.saludo {
+    color:white;
+    align-content: center;
+    color: white;
+    margin-left: auto;
+    margin-right: 20px;
+    text-align: right;
+    align-items: center;
+
+}
+
+.saludo-topbar {
+    color: white;
+    margin-left: auto;
+    margin-right: 20px;
+    text-align: right;
+    margin-top: 25px;
+}
+
+.saludo-topbar .salir-topbar {
+    color: #ccc;
+}
+
+
+h1 {
+    font-size: 4em;
+}
+
+button{
+    background: #3B444B;
+    color: #FEFBF4;
+    border: none;
+    align-self: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+h1{
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+}
+
+h2 {
+    font-weight: lighter;
+    margin: 0;
+}
+
+article {
+    margin: 10% 10% 2% 10%;
+}

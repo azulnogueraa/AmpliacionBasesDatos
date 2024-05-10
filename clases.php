@@ -35,9 +35,9 @@ function mostrarClasesDisponibles() {
 
         while ($row = $result->fetch_assoc()) {
             echo '<li>';
-            echo '<strong>Nombre: </strong>' . htmlspecialchars($row['Nombre']) . '<br>';
-            echo '<strong>Descripción: </strong>' . htmlspecialchars($row['Descripcion']) . '<br>';
-            echo '<a href="inscribirClase.php?id=' . $row['ClaseID'] . '">Inscribirse</a>';
+            echo '<h2>' . '<strong>Nombre: </strong>' . htmlspecialchars($row['Nombre']) . '</h2>' . '<br>';
+            echo '<h2>' . '<strong>Descripción: </strong>' . htmlspecialchars($row['Descripcion']) . '</h2>' . '<br>';
+            echo '<a href="inscribirClase.php?id=' . $row['ClaseID'] . '"><button>Inscribirse</button></a>';
             echo '</li>';
         }
 
@@ -57,7 +57,7 @@ function mostrarClasesDisponibles() {
     <title>Clases Disponibles</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.jpg" type="image/png">
-    <link rel="stylesheet" href="css/login_registro.css">
+    <link rel="stylesheet" href="css/clases.css">
 </head>
 <body>
     <!-- topbar -->
