@@ -23,7 +23,6 @@ El proyecto consiste en la creación de una aplicacion web para la asignación d
 
 #### Bases de datos en MySQL
 
-![Diagrama de la estructura de la base de datos](/img/diagrama.png){ width=85% }
 
 La estructura de la base de datos está diseñada siguiendo los principios de la tercera forma normal (3FN), lo que implica eliminar las dependencias transitivas y garantizar que cada campo dependa solo de la clave principal.
 
