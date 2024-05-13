@@ -15,43 +15,43 @@ bibliography: bibliography.bib
 
 \section*{Memoria de la estructura del proyecto}
 
-### Introducción
+## Introducción
 
 El proyecto consiste en la creación de una aplicacion web para la asignación de clases de un gimnasio. La aplicación permite a los usuarios registrarse, loguearse, ver las clases disponibles, inscribirse a las mismas y ver las clases a las que se han inscripto.
 
-### Estructura del proyecto
+## Estructura del proyecto
 
-#### Bases de datos en MySQL
-
+### Bases de datos en MySQL
 
 La estructura de la base de datos está diseñada siguiendo los principios de la tercera forma normal (3FN), lo que implica eliminar las dependencias transitivas y garantizar que cada campo dependa solo de la clave principal.
 
-Tabla de Usuarios (Usuarios):
+`Tabla de Usuarios (Usuarios)`:
 
 - Esta tabla almacena la información básica de los usuarios, incluyendo su identificador único (UserID), nombre, correo electrónico y una hash de su contraseña.
 - La tercera forma normal se respeta al evitar la redundancia de datos como múltiples correos electrónicos para un mismo usuario. La clave primaria (UserID) identifica de manera única a cada usuario.
 
-Tabla de Instructores (Instructores):
+`Tabla de Instructores (Instructores)`:
 
 - Aquí se gestionan los instructores de forma independiente con su propio identificador único (InstructorID) y nombre.
 - Esta tabla respeta la 3FN al separar la información del instructor de las clases que imparten, permitiendo que un instructor pueda impartir múltiples clases.
 
-Tabla de Clases (Clases):
+`Tabla de Clases (Clases)`:
 
 - Gestiona la información de las clases ofrecidas, incluyendo su nombre, descripción y el instructor asociado.
 - La relación con la tabla Instructores a través de InstructorID respeta la 3FN al evitar la repetición de información del instructor en múltiples registros de clases.
 
-Tabla de Horarios de Clases (HorariosClases):
+`Tabla de Horarios de Clases (HorariosClases)`:
 
 - Esta tabla maneja la programación de las clases, incluyendo la fecha, hora de inicio, duración, capacidad máxima y la relación con la clase (ClaseID).
 - Se respeta la 3FN al separar la información de horarios de las clases, evitando la repetición de datos como fechas o capacidades en registros de clases individuales.
 
-Tabla de Inscripciones (Inscripciones):
+`Tabla de Inscripciones (Inscripciones)`:
+
 - Registra qué usuario se ha inscrito en qué clase y en qué horario.
 - La relación entre UserID y HorarioID asegura que un usuario pueda inscribirse en múltiples clases y que cada clase puede tener múltiples inscripciones.
 - La 3FN se respeta al separar la información de inscripciones de los detalles de usuarios y horarios, manteniendo una relación ordenada y evitando dependencias transitivas.
 
-#### Datos iniciales
+### Datos iniciales
 
 **Tabla de Usuarios (Usuarios)**
 
@@ -123,7 +123,7 @@ Tabla de Inscripciones (Inscripciones):
 | 4             | 4      | 4         |
 | 5             | 5      | 5         |
 
-#### Aplicación web
+### Aplicación web
 
 La aplicación web se ha desarrollado utilizando PHP y HTML, con el objetivo de ofrecer una interfaz sencilla y amigable para los usuarios.
 
